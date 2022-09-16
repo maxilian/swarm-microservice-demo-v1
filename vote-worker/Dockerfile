@@ -1,12 +1,12 @@
-FROM java:7
+FROM java:8
 
 RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
 WORKDIR /code
 
 ADD pom.xml /code/pom.xml
-#RUN ["mvn", "dependency:tree"]
-RUN ["mvn", "org.apache.maven.plugins:maven-resources-plugin:2.3:tree", "-Dverbose=true"]
+RUN ["mvn", "dependency:resolve"]
+#RUN ["mvn", "org.apache.maven.plugins:maven-resources-plugin:2.3:tree", "-Dverbose=true"]
 
 RUN ["mvn", "verify"]
 
@@ -14,4 +14,4 @@ RUN ["mvn", "verify"]
 ADD src /code/src
 RUN ["mvn", "package"]
 
-CMD ["/usr/lib/jvm/java-7-openjdk-amd64/bin/java", "-jar", "target/worker-jar-with-dependencies.jar"]
+CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "target/worker-jar-with-dependencies.jar"]
