@@ -6,6 +6,8 @@ WORKDIR /code
 
 ADD pom.xml /code/pom.xml
 #RUN ["mvn", "dependency:tree"]
+RUN ["mvn", "org.apache.maven.plugins:maven-resources-plugin:2.3:tree", "-Dverbose=true"]
+
 RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
