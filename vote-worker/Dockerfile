@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 WORKDIR /code
 
 ADD pom.xml /code/pom.xml
-RUN ["mvn", "dependency:resolve"]
+RUN ["mvn", "dependency:tree"]
 RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
