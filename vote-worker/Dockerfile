@@ -1,4 +1,5 @@
-FROM java:8
+#FROM java:8
+FROM openjdk:11
 
 RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
@@ -14,4 +15,4 @@ RUN ["mvn", "verify"]
 ADD src /code/src
 RUN ["mvn", "package"]
 
-CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "target/worker-jar-with-dependencies.jar"]
+CMD ["/usr/lib/jvm/java-11-openjdk-amd64/bin/java", "-jar", "target/worker-jar-with-dependencies.jar"]
