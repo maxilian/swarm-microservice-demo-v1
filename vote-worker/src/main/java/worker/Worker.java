@@ -137,9 +137,9 @@ class Worker {
         }
       }
 
-//       PreparedStatement st = conn.prepareStatement(
-//         "CREATE TABLE votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL, ts TIMESTAMP DEFAULT NOW())");
-//       st.executeUpdate();
+      PreparedStatement st = conn.prepareStatement(
+        "CREATE TABLE votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL, ts TIMESTAMP DEFAULT NOW())");
+      st.executeUpdate();
 
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
