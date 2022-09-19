@@ -138,7 +138,7 @@ class Worker {
       }
 
       PreparedStatement st = conn.prepareStatement(
-        "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL, ts TIMESTAMP DEFAULT NOW())");
+        "CREATE TABLE votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL, ts TIMESTAMP DEFAULT NOW())");
       st.executeUpdate();
 
     } catch (ClassNotFoundException e) {
