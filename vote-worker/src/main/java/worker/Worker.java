@@ -108,7 +108,7 @@ class Worker {
         conn.keys("*");
         break;
       } catch (JedisConnectionException e) {
-        System.err.println("Failed to connect to redis - retrying");
+        System.err.println("Failed to connect to redis - retrying host: "+host);
         sleep(1000);
       }
     }
