@@ -42,7 +42,7 @@ async.retry(
 
 function getVotes(client) {
   var allVotes = [];
-  client.query('SELECT id, vote, ts FROM votes', [], function(err, result) {
+  client.query('SELECT id, vote, ts FROM public.votes', [], function(err, result) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
@@ -53,7 +53,7 @@ function getVotes(client) {
     }
   });
 
-  client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
+  client.query('SELECT vote, COUNT(id) AS count FROM public.votes GROUP BY vote', [], function(err, result) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
